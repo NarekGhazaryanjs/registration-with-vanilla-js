@@ -1,8 +1,14 @@
+// getting sign-up page login input field
 const signupLogin = document.getElementById('signup-login');
+// getting sign-up page password input field
 const signupPassword = document.getElementById('signup-password');
+// getting sign-up page confirm password input field
 const signupConfirmPassword = document.getElementById('signup-confirm-password');
+// getting sign-up page button to sign up 
 const signupButton = document.getElementById('signup-button');
+// getting wrong-block if something goes wrong to show errors
 const wrongBlock = document.getElementById('wrong-block');
+// renaming the localeStorage to database to work with
 const database = window.localStorage;
 
 
@@ -42,13 +48,14 @@ const allValidationsPass = () => {
     return false
 }
 
-
-
-// adding event listener to sign up button with checks 
+// adding event listener to sign up button with checks  or show possible reasons of fail 
 signupButton.addEventListener('click', () => {
+    // if everything is ok adding user to our database
     if(allValidationsPass()){
-           database.setItem(`${signupLogin.value}`, signupLogin.value) 
-    }  else {
+        database.setItem(`${signupLogin.value}`, signupLogin.value);
+    }  
+    // if something is wrong show user possible issues
+    else {
            wrongBlock.innerHTML = `
              <p> Something Went Wrong </p>
              <p>  possible issues  </p>
