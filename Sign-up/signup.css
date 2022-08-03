@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+html {
+    font-size: 10px;
+}
+
+section {
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 10vh;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+
+
+section div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+ input,  button {
+    margin-top: 10px;
+    padding: 16px
+}
+
+input {
+    color: black;
+}
+
+button {
+    background-color: black;
+    border-radius: 16px;
+    cursor: pointer;
+    width: 100%;
+    color: white;
+}
+
