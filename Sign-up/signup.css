@@ -45,3 +45,8 @@ button {
     color: white;
 }
 
+#wrong-block ul {
+    list-style-position: inside;
+    padding: 16px;
+    border: 2px solid green;
+}

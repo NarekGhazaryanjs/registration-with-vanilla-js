@@ -2,6 +2,7 @@ const signupLogin = document.getElementById('signup-login');
 const signupPassword = document.getElementById('signup-password');
 const signupConfirmPassword = document.getElementById('signup-confirm-password');
 const signupButton = document.getElementById('signup-button');
+const wrongBlock = document.getElementById('wrong-block');
 const database = window.localStorage;
 
 
@@ -45,5 +46,17 @@ const allValidationsPass = () => {
 
 // adding event listener to sign up button with checks 
 signupButton.addEventListener('click', () => {
-     allValidationsPass() ?  database.setItem(`${signupLogin.value}`, signupLogin.value) : null
+    if(allValidationsPass()){
+           database.setItem(`${signupLogin.value}`, signupLogin.value) 
+    }  else {
+           wrongBlock.innerHTML = `
+             <p> Something Went Wrong </p>
+             <p>  possible issues  </p>
+             <ul> 
+               <li> user with username already exists </li>
+               <li> password and confirm password are not matched </li>
+               <li> there is issue within fields requierements </li>
+             </ul>
+           `
+    }
 })
