@@ -36,7 +36,7 @@ const checkingUserExists = () => {
     return true
 }
 
-
+//  if something is wrong show user possible issues
 const wrongSignUp = () => {
     const newBlock = document.createElement('div');
     newBlock.innerHTML = `
@@ -48,6 +48,7 @@ const wrongSignUp = () => {
         <li> there is issue within fields requierements </li>
       </ul>
     `
+    wrongBlock.innerHTML = '';
     wrongBlock.append(newBlock)
 }
 
