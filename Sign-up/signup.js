@@ -69,7 +69,7 @@ const allValidationsPass = () => {
 signupButton.addEventListener('click', () => {
     // if everything is ok adding user to our database
     if (allValidationsPass()) {
-        database.setItem(`${signupLogin.value}`, signupLogin.value);
+        database.setItem(`${signupLogin.value}`, signupPassword.value);
     }
     // if something is wrong show user possible issues
     else {
