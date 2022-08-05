@@ -26,14 +26,30 @@ const checkConfirmation = (a, b) => {
 }
 
 
+
+
 // checking to add only not existing login
 const checkingUserExists = () => {
-    if(database.getItem(signupLogin.value))  {
+    if (database.getItem(signupLogin.value)) {
         return false
     }
     return true
 }
 
+
+const wrongSignUp = () => {
+    const newBlock = document.createElement('div');
+    newBlock.innerHTML = `
+      <p> Something Went Wrong </p>
+      <p>  possible issues  </p>
+      <ul> 
+        <li> user with username already exists </li>
+        <li> password and confirm password are not matched </li>
+        <li> there is issue within fields requierements </li>
+      </ul>
+    `
+    wrongBlock.append(newBlock)
+}
 
 // checking if all validations of sign up have been passed
 const allValidationsPass = () => {
@@ -51,19 +67,11 @@ const allValidationsPass = () => {
 // adding event listener to sign up button with checks  or show possible reasons of fail 
 signupButton.addEventListener('click', () => {
     // if everything is ok adding user to our database
-    if(allValidationsPass()){
+    if (allValidationsPass()) {
         database.setItem(`${signupLogin.value}`, signupLogin.value);
-    }  
+    }
     // if something is wrong show user possible issues
     else {
-           wrongBlock.innerHTML = `
-             <p> Something Went Wrong </p>
-             <p>  possible issues  </p>
-             <ul> 
-               <li> user with username already exists </li>
-               <li> password and confirm password are not matched </li>
-               <li> there is issue within fields requierements </li>
-             </ul>
-           `
+        wrongSignUp()
     }
 })
